@@ -50,7 +50,7 @@ library(MASS)
     # Remove All England value
     filter(AreaType != "England") %>% 
     # Keep required fields only
-    select(AreaName, IndicatorName, Sex, Value) 
+    dplyr::select(AreaName, IndicatorName, Sex, Value) 
 
   # Males
   data1 <- data %>%
@@ -59,13 +59,13 @@ library(MASS)
     # Rename value to specific indicator
     rename("le.birth.m" = "Value") %>%
     # Keep required columns
-    select(-c(IndicatorName, Sex))
+    dplyr::select(-c(IndicatorName, Sex))
   
   # Females
     data2 <- data %>%
     filter(Sex == "Female") %>%
     rename("le.birth.f" = "Value") %>%
-    select(-c(IndicatorName, Sex))
+    dplyr::select(-c(IndicatorName, Sex))
 
 # IMD (2019) scores
   data3 <- fingertips_data(IndicatorID = 93553, AreaTypeID = 502) %>% 
@@ -74,7 +74,7 @@ library(MASS)
     # Remove All England value
     filter(AreaType != "England") %>% 
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("imd" = "Value")
   
@@ -87,7 +87,7 @@ library(MASS)
     filter(Sex == "Persons") %>%
     filter(Age == "16-64 yrs") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("employment" = "Value")
 
@@ -99,7 +99,7 @@ library(MASS)
     # Remove All England value
     filter(AreaType != "England") %>% 
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("homelessness" = "Value")
   
@@ -112,7 +112,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("smoking" = "Value")
   
@@ -125,7 +125,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("overweight" = "Value")
   
@@ -137,7 +137,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("chlamydia" = "Value")
   
@@ -149,7 +149,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("pa" = "Value")
 
@@ -161,7 +161,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("attainment8" = "Value") 
 
@@ -173,7 +173,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("adm.selfharm" = "Value") 
 
@@ -186,7 +186,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("mort.cancer" = "Value")
 
@@ -198,7 +198,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("pop.over65" = "Value")
   
@@ -210,7 +210,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("pop.under18" = "Value")
   
@@ -222,7 +222,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("suicide" = "Value")
 
@@ -234,7 +234,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("adm.violent.crime" = "Value")
   
@@ -246,7 +246,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("infant.mort" = "Value")
   
@@ -258,7 +258,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("children.low.income" = "Value")
  
@@ -269,7 +269,7 @@ library(MASS)
     # Remove All England value
     filter(AreaType != "England") %>% 
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("teen.pregnancy" = "Value")
 
@@ -281,7 +281,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("mort.cvd" = "Value")
 
@@ -293,7 +293,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("weekly.earnings" = "Value")
   
@@ -304,7 +304,7 @@ library(MASS)
     # Remove All England value
     filter(AreaType != "England") %>% 
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("fuel.povery" = "Value")
   
@@ -316,7 +316,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("sti.rates" = "Value")
   
@@ -328,7 +328,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("health.check" = "Value")
   
@@ -341,7 +341,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("diabetes" = "Value")
   
@@ -353,7 +353,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("htn" = "Value")
 
@@ -365,7 +365,7 @@ library(MASS)
     filter(AreaType != "England") %>% 
     filter(Sex == "Persons") %>%
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("chd" = "Value")
 
@@ -376,7 +376,7 @@ library(MASS)
     # Remove All England value
     filter(AreaType != "England") %>% 
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("screening.breast" = "Value") 
   
@@ -388,7 +388,7 @@ library(MASS)
     # Remove All England value
     filter(AreaType != "England") %>% 
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("screening.bowel" = "Value") 
   
@@ -399,7 +399,7 @@ library(MASS)
     # Remove All England value
     filter(AreaType != "England") %>% 
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("screening.cervical.younger" = "Value") 
   
@@ -411,7 +411,7 @@ library(MASS)
     # Remove All England value
     filter(AreaType != "England") %>% 
     # Keep required fields only
-    select(AreaName, Value) %>%
+    dplyr::select(AreaName, Value) %>%
     # Rename value to specific indicator
     rename("screening.cervical.older" = "Value") 
   
@@ -424,7 +424,7 @@ library(MASS)
       filter(AreaType != "England") %>% 
       filter(Sex == "Persons") %>%
       # Keep required fields only
-      select(AreaName, Value) %>%
+      dplyr::select(AreaName, Value) %>%
       # Rename value to specific indicator
       rename("adm.emergency.under18" = "Value") 
   
@@ -436,7 +436,7 @@ library(MASS)
       filter(AreaType != "England") %>% 
       filter(Sex == "Persons") %>%
       # Keep required fields only
-      select(AreaName, Value) %>%
+      dplyr::select(AreaName, Value) %>%
       # Rename value to specific indicator
       rename("mort.preventable" = "Value") 
     
@@ -447,7 +447,7 @@ library(MASS)
       # Remove All England value
       filter(AreaType != "England") %>% 
       # Keep required fields only
-      select(AreaName, Value) %>%
+      dplyr::select(AreaName, Value) %>%
       # Rename value to specific indicator
       rename("pollution.pm2.5" = "Value") 
 
@@ -458,7 +458,7 @@ library(MASS)
       # Remove All England value
       filter(AreaType != "England") %>% 
       # Keep required fields only
-      select(AreaName, Value) %>%
+      dplyr::select(AreaName, Value) %>%
       # Rename value to specific indicator
       rename("mort.pollution" = "Value") 
     
@@ -469,7 +469,7 @@ library(MASS)
       # Remove All England value
       filter(AreaType != "England") %>% 
       # Keep required fields only
-      select(AreaName, Value) %>%
+      dplyr::select(AreaName, Value) %>%
       # Rename value to specific indicator
       rename("depression" = "Value")     
   
@@ -481,7 +481,7 @@ library(MASS)
       filter(AreaType != "England") %>% 
       filter(Age == "18+ yrs") %>%
       # Keep required fields only
-      select(AreaName, Value) %>%
+      dplyr::select(AreaName, Value) %>%
       # Rename value to specific indicator
       rename("social.contact" = "Value")     
     
@@ -492,7 +492,7 @@ library(MASS)
       # Remove All England value
       filter(AreaType != "England") %>% 
       # Keep required fields only
-      select(AreaName, Value) %>%
+      dplyr::select(AreaName, Value) %>%
       # Rename value to specific indicator
       rename("violent.crime" = "Value")    
 
@@ -503,7 +503,7 @@ library(MASS)
       # Remove All England value
       filter(AreaType != "England") %>% 
       # Keep required fields only
-      select(AreaName, Value) %>%
+      dplyr::select(AreaName, Value) %>%
       # Rename value to specific indicator
       rename("lbw" = "Value")    
     
@@ -514,16 +514,12 @@ library(MASS)
       # Remove All England value
       filter(AreaType != "England") %>% 
       # Keep required fields only
-      select(AreaName, Value) %>%
+      dplyr::select(AreaName, Value) %>%
       # Rename value to specific indicator
-      rename("lbw" = "Value")   
+      rename("breast.feeding" = "Value")   
     
     
 ## Data processing -------------
-    
-    # Create a list of dataframe names from data1 to data42
-    data_list <- sprintf("data%d", 1:40)
-    
     
     # Merge datasets 
     all.data <- data1 %>%
@@ -571,7 +567,7 @@ library(MASS)
     all.data <- all.data %>%
       mutate(le.inequality = le.birth.f - le.birth.m) %>%
       # Remove original life expectancy columns
-      select(-c(le.birth.f, le.birth.m))
+      dplyr::select(-c(le.birth.f, le.birth.m))
 
     # Impute missing values using the mean of the ten nearest neighbours
     
@@ -583,7 +579,7 @@ library(MASS)
         data.original <- all.data %>%
           # Get complete rows only
           filter(complete.cases(.)) %>%
-          select(-AreaName)
+          dplyr::select(-AreaName)
         
         # Create data with randomly inserted NA values where these are actually known
         data.missing <- all.data %>%
@@ -591,7 +587,7 @@ library(MASS)
           filter(complete.cases(.)) %>%
           # Introduce some random NAs
           mutate(across(everything(), ~ ifelse(runif(n()) < 0.1, NA, .))) %>%
-          select(-AreaName)
+          dplyr::select(-AreaName)
         
         # Calculate imputed data
         data.imputed <- kNN(data.missing, k = 12, imp_var = FALSE)
@@ -643,7 +639,7 @@ library(MASS)
     # Select data for ML
     
         # Select relevant features for modeling
-        selected_data <- data_imputed %>% select(-AreaName)
+        selected_data <- data_imputed %>% dplyr::select(-AreaName)
         
     
         
@@ -663,7 +659,7 @@ library(MASS)
         correlation_matrix <- cor(data_standardized)
         
         # Plot the correlation matrix
-        corrplot(correlation_matrix, method = "circle")
+        corrplot(correlation_matrix, method = "circle", mar=c(1, 1, 1, 1), tl.cex = 0.7, tl.col = rep(c("#8B0000", "#530000"), length.out = ncol(correlation_matrix)))
         
         # Set a threshold for high correlation
         high_correlation_threshold <- 0.8
@@ -681,10 +677,10 @@ library(MASS)
         correlation_matrix_reduced <- cor(data_reduced)
         
         # Optionally visualize the reduced correlation matrix
-        corrplot(correlation_matrix_reduced, method = "circle")
+        corrplot(correlation_matrix_reduced, method = "circle", mar=c(1, 1, 1, 1), tl.cex = 0.7, tl.col = rep(c("#8B0000", "#530000"), length.out = ncol(correlation_matrix)))
         
         # Find pairs of highly correlated features - here there are none so no more variable removal required
-        highly_correlated <- findCorrelation(correlation_matrix, cutoff = high_correlation_threshold)
+        highly_correlated <- findCorrelation(correlation_matrix_reduced, cutoff = high_correlation_threshold)
         
     # Lasso regularisation to identify most relevant features for linear regression
         
@@ -717,7 +713,7 @@ library(MASS)
         print(relevant_features)
         
         # Subset the original data to include only the selected features and the response
-        data_selected <- data_imputed[, c("employment", "smoking", "chlamydia", "pop.under18", "children.low.income", "screening.breast", "lbw.x", "le.inequality")]
+        data_selected <- data_imputed[, c("employment", "smoking", "chlamydia", "pop.under18", "children.low.income", "screening.breast", "lbw", "le.inequality")]
       
     # Cross-validation with RFE
         
@@ -779,6 +775,9 @@ library(MASS)
         model <- train(le.inequality ~ ., data = dataTrain_standardized, method = "lm",
                        trControl = trainControl(method = "cv", number = 10))
         
+        # Robust regression
+        #model <- rlm(le.inequality ~ ., data = dataTrain_standardized)
+        
         # Print the model summary
         summary(model)
         
@@ -797,11 +796,11 @@ library(MASS)
         
         # Plot actual vs. predicted values
         ggplot(results_df, aes(x = Actual, y = Predicted)) +
-          geom_point(color = "blue", alpha = 0.5) +
-          geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
+          geom_point(color = "#01204d", alpha = 1) +
+          geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "#8b0000") +
           labs(title = "Actual vs Predicted Values",
-               x = "Actual Values",
-               y = "Predicted Values") +
+               x = "\nActual Values",
+               y = "Predicted Values\n") +
           theme_minimal()
         
         # Print the model coefficients
@@ -816,7 +815,12 @@ library(MASS)
         # Residuals vs. Leverage: Identify potential outliers or influential observations.
         
         par(mfrow = c(2, 2))
-        plot(model$finalModel)
+        plot(model$finalModel, 
+             pch = 19,  # Solid circle for points
+             col = "#01204d")  # Color of points
+      
+        
+        
         
         # Save the trained model
         saveRDS(model, "linear_regression_model.rds")
